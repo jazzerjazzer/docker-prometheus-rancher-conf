@@ -1,8 +1,8 @@
 global:
   scrape_interval: 15s
 
-scrape_configs: {{ range $serviceName := ls "/services" }} {{ if exists (printf "/services/%s/labels/prometheus.monitor" $serviceName)}}
+scrape_configs: {{ range $serviceName := lsdir "/services" }} {{ if exists (printf "/services/%s/labels/prometheus.monitor" $serviceName)}}
     - job_name: {{ getv (printf "/services/%s/name" $serviceName) }}
       target_groups:
-      - targets: {{ range $containerId := ls (printf "/services/%s/containers" $serviceName) }} {{ if exists  }}
+      - targets: {{ range $containerId := lsdir (printf "/services/%s/containers" $serviceName) }}
         - '{{ getv (printf "/services/%s/containers/%s/primary_ip" $serviceName $containerId) }}:{{ ( getv (printf "/services/%s/labels/prometheus.monitor.port" $serviceName) "3000") }}' {{ end }} {{ end }} {{end }}
