@@ -1,0 +1,6 @@
+[template]
+src = "prometheus.yml.tmpl"
+dest = "/tmp/prometheus.yml"
+keys = [
+  "/services",
+]
