@@ -1,6 +1,7 @@
 [template]
 src = "prometheus.yml.tmpl"
-dest = "/tmp/prometheus.yml"
+dest = "/etc/prometheus/prometheus.yml"
 keys = [
   "/services",
 ]
+reload_cmd = "/reload.sh"

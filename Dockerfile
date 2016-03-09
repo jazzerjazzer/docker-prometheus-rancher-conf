@@ -35,7 +35,12 @@ RUN apk add --update -t deps openssl \
 
 ADD confd /etc/confd
 ADD run.sh /run.sh
+ADD reload.sh /reload.sh
 
 ENV CONFD_INTERVAL=10
+ENV RANCHER_PROMETHEUS_STACK=metrics
+ENV RANCHER_PROMETHEUS_SERVICE=prometheus
+
+VOLUME /etc/prometheus
 
 ENTRYPOINT [ "/run.sh" ]
