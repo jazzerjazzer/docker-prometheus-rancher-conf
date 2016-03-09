@@ -20,4 +20,5 @@ wait_for_rancher_metadata() {
 echo "[prometheus-config] waiting for rancher-metadata to become available"
 wait_for_rancher_metadata
 echo "[prometheus-config] watching for changes every ${CONFD_INTERVAL}s"
+echo "${RANCHER_PROMETHEUS_SERVICE}:" > docker-compose.yml
 confd -interval $CONFD_INTERVAL -backend rancher -prefix /2015-12-19
