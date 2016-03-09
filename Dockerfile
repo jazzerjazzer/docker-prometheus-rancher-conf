@@ -14,7 +14,7 @@ ENV CONFD_VERSION="0.12.0-alpha3" \
     GLIBC_BIN_PKG="glibc-bin-2.21-r2.apk" \
     CONFD_INTERVAL="10" \
     CONFD_URL="https://github.com/kelseyhightower/confd/releases/download" \
-    RANCHER_COMPOSE_VERSION="0.7.1-rc2" \
+    RANCHER_COMPOSE_VERSION="0.7.2" \
     RANCHER_PROMETHEUS_STACK="metrics" \
     RANCHER_PROMETHEUS_SERVICE="prometheus"
 
@@ -23,7 +23,7 @@ ENV CONFD_VERSION="0.12.0-alpha3" \
 #------------------------------------------------------------------------------
 
 RUN apk add --update -t deps openssl \
-    && apk add --update bash && cd /tmp \
+    && apk add --update curl bash && cd /tmp \
     && wget ${ALPINE_GLIBC_URL}${GLIBC_PKG} ${ALPINE_GLIBC_URL}${GLIBC_BIN_PKG} \
     && wget ${CONFD_URL}/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64 -O /bin/confd \
     && apk add --allow-untrusted ${GLIBC_PKG} ${GLIBC_BIN_PKG} \
