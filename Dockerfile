@@ -16,7 +16,7 @@ ENV CONFD_VERSION="0.12.0-alpha3" \
     CONFD_URL="https://github.com/kelseyhightower/confd/releases/download" \
     RANCHER_COMPOSE_VERSION="0.7.1-rc2" \
     RANCHER_PROMETHEUS_STACK="metrics" \
-    RANCHER_PROMETHEUS_SERVICE="prometheus" \
+    RANCHER_PROMETHEUS_SERVICE="prometheus"
 
 #------------------------------------------------------------------------------
 # Install Confd:
